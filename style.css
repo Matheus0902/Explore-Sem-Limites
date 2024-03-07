@@ -1,0 +1,364 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-somoothing: grayscale;
+}
+
+:root{
+  font-family: "Mulish", sans-serif;
+  font-size: 62.5%;
+
+  --strong-purple: #312D64;
+  --purple-color: linear-gradient(96deg, #343193 0%, #302C63 99.68%);
+  --white-color:#fff;
+  --pink-color: #B52184;
+}
+
+.desktop{
+  display: none;
+}
+
+#app{
+  max-width: 43rem;
+  margin: 0 auto;
+}
+
+header{
+  text-align: center;
+}
+
+header #astronaut{
+  width: 36.4rem;
+  height: 37rem;
+}
+
+header h1{
+  margin-top: 1.7rem;
+  font-size: 3.2rem;
+  font-weight: 900;
+  color: var(--pink-color);
+}
+
+header p{
+  margin-top: .5rem;
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--strong-purple);
+}
+
+header #arrow{
+  margin-top: 3.5rem;
+}
+
+main{
+  margin-top: 9.3rem;
+}
+
+.articles-section, .contact-section{
+  
+  padding: 5.3rem 4rem;
+}
+
+.articles-section{
+  background: var(--purple-color);
+}
+
+.articles-list{
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+  list-style: none;
+}
+
+.articles-item{
+  background: var(--white-color);
+  border-radius: 2rem;
+  padding: 2.7rem;
+}
+
+.articles-item h2{
+  margin-top: 3.3rem;
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--pink-color);
+}
+
+.articles-item p{
+  margin-top: 2rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--strong-purple);
+  margin-right: 3.3rem;
+}
+
+.contact-section{
+  margin-top: 2.5rem;
+}
+
+form fieldset{
+  border: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+fieldset legend{
+  color: var(--pink-color);
+  font-size: 3.2rem;
+  font-weight: 900;
+  margin-bottom: 4.3rem
+}
+
+.input-wrapper{
+  display: flex;
+  flex-direction: column;
+}
+
+.input-wrapper label{
+  width: .1rem;
+  height: .1rem;
+  opacity: 0;
+}
+
+.input-wrapper #name, .input-wrapper #email{
+  background-repeat: no-repeat;
+  background-position-y: 1.2rem;
+  background-position-x: 1.4rem;
+  padding-left: 4.5rem;
+}
+
+
+.input-wrapper #name{
+  background-image: url('./assets/person.svg');
+}
+
+.input-wrapper #email{
+  background-image: url('./assets/at.svg');
+}
+
+input::placeholder, textarea::placeholder{
+  font-family: "Mulish", sans-serif;
+  color: var(--strong-purple);
+  font-weight: 700;
+}
+
+.input-wrapper input, .input-wrapper textarea{
+  border-radius: 1.6rem;
+  border: .2rem solid var(--strong-purple);
+  padding: 1.2rem 1.6rem;
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: var(--strong-purple);
+}
+
+.input-wrapper input{
+  height: 4.8rem;
+}
+
+.input-wrapper textarea{
+  height: 12.6rem;
+}
+
+fieldset button{
+  border-radius: 1.6rem;
+  width: 15rem;
+  height: 4.5rem;
+  border: 0;
+  background: var(--purple-color);
+  color: var(--white-color);
+  font-family: "Mulish", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 2.4rem; 
+}
+
+footer{
+  background: var(--purple-color);
+  text-align: center;
+  padding: 3.2rem;
+}
+
+footer p{
+  color: var(--white-color);
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+@media (min-width: 700px){
+  #app{
+    max-width: 60rem;
+  }
+
+  fieldset button{
+    width: 20rem;
+  }
+}
+
+header{
+  --startY: -100%;
+  animation: move 1.1s;
+}
+
+footer{
+  --startY: 100%;
+  animation: move 1.1s;
+}
+
+@keyframes move {
+  0% {
+    transform: translateY(var(--startY));
+  }
+
+}
+
+.articles-item{
+  --startX: 200%;
+  --delayX: .4s;
+  animation: appear var(--delayX);
+}
+
+.contact-section form{
+  --startX: -200%;
+  --delayX: 1s;
+  animation: appear var(--delayX);
+}
+
+@keyframes appear {
+  0% {
+    transform: translateX(var(--startX));
+  }
+
+}
+
+.articles-item img{
+  animation: rotate-animation 1100s infinite;
+}
+
+@keyframes rotate-animation{
+  0%{
+    transform: rotate(100000deg);
+  }
+}
+
+@media (min-width: 1000px){
+
+  #app{
+    max-width: 144rem;
+  }
+
+  .desktop{
+    display: inline;
+  }
+
+  .mobile{
+    display: none;
+  }
+
+  header{
+    display: flex;
+    justify-content: center;
+    gap: 2.8rem;
+  }
+
+  header div{
+    text-align: left;
+  }
+
+  header #astronaut{
+    width: 50rem;
+    height: 51rem;
+  }
+
+  header h1{
+    font-size: 5rem;
+    margin-top: 20rem;
+  }
+
+  header p{
+    font-size: 2.8rem;  
+  }
+
+  header #arrow{
+    margin-top: 8rem;
+  }
+
+  .articles-list{
+    display: flex;
+    flex-direction: row;
+    padding: 1rem 1.5rem;
+  }
+
+  .articles-item{
+    width: 50rem;
+  }
+
+  .articles-item:hover{ 
+    transition: .5s;
+    transform: scale(1.1);
+    img{
+      animation-play-state: paused;
+    }
+
+    h2{
+      color: var(--strong-purple);
+    }
+  }
+
+  .articles-item p{
+    margin-right: 0;
+  }
+
+  .contact-section{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+  } 
+
+  .contact-section form{
+    width: 40rem;
+    margin: 5rem;
+  }
+
+  .contact-section img{
+    width: 50rem;
+  }
+  
+  .contact-section button{
+    font-size: 1.6rem;
+  }
+
+  .contact-section button:hover{
+    background:  linear-gradient(96deg, #1f1d57 0%, #232048 99.68%);
+    transition: .3s;
+    transform: scale(1.1);
+    margin-left: 1rem;
+  }
+}
+
+@media (min-width: 1100px){
+  .contact-section form{
+    width: 50rem;
+  }
+}
+
+@media (min-width: 1200px){
+  .contact-section form{
+    margin: 10rem;
+  }
+
+  .contact-section img{
+    width: 55rem;
+  }
+}
+
+@media (min-width: 1200px){
+  .contact-section img{
+    width: 60rem;
+  }
+}
+
+  
